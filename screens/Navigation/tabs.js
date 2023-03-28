@@ -12,6 +12,7 @@ import Profile from "../Profile"
 
 const Tab = createBottomTabNavigator();
 
+// navigation.jumpTo('Profile', { owner: 'Michaś' });
 const Tabs = () => {
   return (
     <Tab.Navigator
