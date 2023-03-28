@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -30,7 +30,8 @@ const Tabs = () => {
         }} />
         <Tab.Screen name="Products" component={Products} options={{
             tabBarIcon:({focused, size}) => (
-                <Entypo name='list' size={size} color={ focused ? "#FF844C":"#DADCE0"} />
+                <Image source={require("../../assets/menu.png")} style={{ tintColor: focused ? "#FF844C":"#DADCE0", width:size, height:size}} />
+                // <Entypo name='list' size={size} color={ focused ? "#FF844C":"#DADCE0"} />
             )
         }} />
         <Tab.Screen name="Cart" component={Cart} options={{
@@ -58,6 +59,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.5,
-        elevation: 5
+        elevation: 4
     }
 })
