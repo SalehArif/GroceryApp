@@ -9,6 +9,7 @@ import Home from "../Home"
 import Products from "../Products"
 import Cart from "../Cart"
 import Profile from "../Profile"
+import { HomeStack, ProductStack, CartStack } from "./stack"
 
 const Tab = createBottomTabNavigator();
 
@@ -16,25 +17,24 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-        initialRouteName='Home'
+        initialRouteName='HomeStack'
         screenOptions={{
             tabBarShowLabel:false,
             tabBarStyle:[{position:"absolute", bottom:25, left:30, right:30, borderRadius:30, elevation:0, height:70 },styles.shadow],
             headerShown:false
         }}
     >
-        <Tab.Screen name="Home" component={Home} options={{
+        <Tab.Screen name="HomeStack" component={HomeStack} options={{
             tabBarIcon:({focused, size}) => (
                 <Entypo name='home' size={size} color={ focused ? "#FF844C":"#DADCE0"} />
             )
         }} />
-        <Tab.Screen name="Products" component={Products} options={{
+        <Tab.Screen name="ProductStack" component={ProductStack} options={{
             tabBarIcon:({focused, size}) => (
                 <Image source={require("../../assets/menu.png")} style={{ tintColor: focused ? "#FF844C":"#DADCE0", width:size, height:size}} />
-                // <Entypo name='list' size={size} color={ focused ? "#FF844C":"#DADCE0"} />
             )
         }} />
-        <Tab.Screen name="Cart" component={Cart} options={{
+        <Tab.Screen name="CartStack" component={CartStack} options={{
             tabBarIcon:({focused, size}) => (
                 <MaterialIcons name='shopping-cart' size={size} color={ focused ? "#FF844C":"#DADCE0"} />
             )

@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar, Image, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, StatusBar, Image, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const filters = 
   [
     ["all"],
@@ -67,7 +67,7 @@ const Products = [
           keyExtractor={(item,index)=> index}
           style={{marginVertical:10, marginHorizontal:20 }}
           renderItem={ ({item,index}) => 
-            <TouchableOpacity style={{backgroundColor:"#FCFEFF", height:180, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
+            <TouchableOpacity onPress={()=> navigation.navigate("ProductDetails", {product:item})} style={{backgroundColor:"#FCFEFF", height:180, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
               <Image source={item.image} style={{width:100, height:100}} />
               <Text style={[styles.subheadingText, {alignSelf:"flex-start"}]}>{item.name}</Text>
               <View style={{flexDirection:"row", justifyContent:"space-between"}}>
@@ -103,9 +103,9 @@ const Products = [
           keyExtractor={(item,index)=> index}
           style={{marginVertical:10, marginHorizontal:20 }}
           renderItem={ ({item,index}) => 
-            <TouchableOpacity style={{flexDirection:"row",backgroundColor:"#FCFEFF", height:100, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
+            <TouchableOpacity onPress={()=> navigation.navigate("ProductDetails", {product:item})} style={{flexDirection:"row",backgroundColor:"#FCFEFF", height:100, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
               <Image source={item.image} style={{width:70, height:70}} />
-              <View style={{}}>
+              <View>
                 <Text style={[styles.subheadingText, {alignSelf:"flex-start"}]}>{item.name}</Text>
                 <View style={{marginRight:10}}>
                   <View style={{flexDirection:"row"}}>

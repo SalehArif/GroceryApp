@@ -1,9 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, StatusBar, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 
-const Products = () => {
+const Products = ({ navigation}) => {
   const Products = [
     {image:require("../assets/brocolli.png"),name:"brocolli",weight:100,price:4},
     {image:require("../assets/banana.png"),name:"banana",weight:100,price:10},
@@ -12,7 +11,7 @@ const Products = () => {
 
   function renderItem({item,index}) {
     return (
-      <TouchableOpacity style={{backgroundColor:"#FCFEFF", height:180, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
+      <TouchableOpacity onPress={()=> navigation.navigate("ProductDetails", {product:item})} style={{backgroundColor:"#FCFEFF", height:180, alignItems:"center", borderRadius:12, marginHorizontal:5, paddingHorizontal:12, paddingVertical:8}}>
         <Image source={item.image} style={{width:90, height:90}} />
         <Text style={[styles.subheadingText, {alignSelf:"flex-start"}]}>{item.name}</Text>
         <View style={{flexDirection:"row", justifyContent:"space-between"}}>
